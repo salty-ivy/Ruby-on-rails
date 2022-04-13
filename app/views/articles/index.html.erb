@@ -1,0 +1,19 @@
+<h1>Articles Index</h1>
+Our blog has  <%= Article.public_count %> articles in total
+<ul>
+    <% @articles.each do |article| %>
+        <% unless article.archived? %>
+            <li>
+                <strong>
+                    <%# <a href="<%= article_path(article)%>
+                        <%# <%= article.title.capitalize %> 
+                    <%# </a> %>
+                    <%= link_to article.title.capitalize, article%> <%# this will cal article_path(article)%>
+                </strong><br>
+            </li>
+            <br>
+        <% end %>
+    <% end %>
+</ul>
+
+<%= link_to "New Article", new_article_path %>
